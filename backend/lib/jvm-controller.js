@@ -230,7 +230,7 @@ const PAPER_V3 = process.env.PAPER_V3_API || "https://fill.papermc.io/v3";
 async function paperJarUrl(version) {
   const want = version && version !== "LATEST" ? version : null;
   try {
-    // ── v3 path ─────────────────────────────────────────────────────────────────────────
+    // ── v3 path ─────────────────────────────────────────────────────────────
     let mcVersion = want;
     if (!mcVersion) {
       const r = await fetch(`${PAPER_V3}/projects/paper`, {
@@ -260,7 +260,7 @@ async function paperJarUrl(version) {
       throw new Error(`v3 ${mcVersion}: no server:default download`);
     return { url: dl.url, version: mcVersion, build: detail.id };
   } catch (v3err) {
-    // ── v2 fallback ─────────────────────────────────────────────────────────────────────────
+    // ── v2 fallback ─────────────────────────────────────────────────────────
     try {
       let mcVersion = want;
       if (!mcVersion) {
